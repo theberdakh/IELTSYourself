@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">IELTS Yourself</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="simple_topic_title">Fun and learning</string>
+    <string name="simple_topic_subtitle">Intermediate</string>
+    <string name="simple_word_title">Book</string>
+    <string name="simple_word_subtitle">Phrasal verb</string>
+    <string name="action_search">Search</string>
+    <string name="save">Save</string>
+    <string name="listen">Listen</string>
+    <string name="translate">Translate</string>
+    <string name="sample_word_meaning">This word means something meaningful and clear</string>
+    <string name="sample_word_example">This is word\'s example.</string>
+    <string name="sample_game_task">Find the meaning of this word:</string>
+    <string name="sample_game_option">Option A</string>
+    <string name="title_translate_dialog">Translation</string>
+    <string name="close">Close</string>
+    <string name="sample_text_translate">Qosiq</string>
+    <string name="title_game_dialog">What do you want to improve?</string>
+    <string name="reading">Reading</string>
+    <string name="writing">Writing</string>
+    <string name="listening">Listening</string>
+    <string name="title_new_topic">New topic</string>
+    <string name="hint_topic">Topic name</string>
+    <string name="title_new_word">New word</string>
+    <string name="hint_word">Word name</string>
+    <string name="hint_word_meaning">Word meaning</string>
+    <string name="more_fields">More fields</string>
+    <string name="add">Add</string>
+    <string name="hint_topic_description">Description (optional)</string>
+</resources>

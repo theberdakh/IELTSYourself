@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/dimen_16"
+    android:layout_gravity="center"
+    app:cardCornerRadius="@dimen/dimen_32"
+    android:orientation="vertical">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_word_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_8"
+            android:hint="@string/hint_word">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_word_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_word_meaning"
+            android:layout_below="@id/til_word_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_word_meaning"
+            android:padding="@dimen/dimen_8">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_word_meaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/more_fields"
+        android:textSize="@dimen/text_14"
+        android:textStyle="bold"
+        app:strokeWidth="0dp"
+        android:layout_below="@id/til_word_meaning"
+        />
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:text="@string/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/round_done_24"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"/>
+
+
+
+</RelativeLayout>
