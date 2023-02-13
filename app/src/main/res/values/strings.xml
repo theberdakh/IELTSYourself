@@ -29,4 +29,17 @@
     <string name="more_fields">More fields</string>
     <string name="add">Add</string>
     <string name="hint_topic_description">Description (optional)</string>
+    <string name="create_a_new_topic">Create a new topic</string>
+    <string name="subtitle_new_topic">Click here to create a new topic</string>
+    <string name="add_new_word">Add new word</string>
+    <string name="hint_word_translation">Translation</string>
+    <string name="hint_new_word_example">Example</string>
+
+
+    <string-array name="word_types">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Upper-intermediate</item>
+        <item>Advanced</item>
+    </string-array>
 </resources>

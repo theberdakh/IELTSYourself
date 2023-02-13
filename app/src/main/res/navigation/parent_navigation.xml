@@ -9,7 +9,34 @@
         android:id="@+id/mainFragment"
         android:name="com.theberdakh.ieltsyourself.ui.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_newTopicFragment"
+            app:destination="@id/newTopicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newWordFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.new_word.NewWordFragment"
+        android:label="fragment_new_word"
+        tools:layout="@layout/fragment_new_word" />
+    <fragment
+        android:id="@+id/newTopicFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.new_topic.NewTopicFragment"
+        android:label="NewTopicFragment"
+        tools:layout="@layout/fragment_new_topic">
+        <action
+            android:id="@+id/action_newTopicFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topicFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.topic.TopicFragment"
+        android:label="fragment_topic"
+        tools:layout="@layout/fragment_topic" >
+        <argument
+            android:name="Topic"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
+    </fragment>
 
 
 </navigation>

@@ -4,20 +4,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.theberdakh.ieltsyourself.ui.add.AddFragment
 import com.theberdakh.ieltsyourself.ui.learn.LearnFragment
-import com.theberdakh.ieltsyourself.ui.topics.TopicsFragment
+import com.theberdakh.ieltsyourself.ui.stats.StatsFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle): FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {
-        return when(position){
+        return when(position) {
             0 -> LearnFragment()
-            1 -> AddFragment()
-            else -> TopicsFragment()
+            else -> StatsFragment()
         }
     }
 

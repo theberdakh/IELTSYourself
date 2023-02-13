@@ -1,10 +1,10 @@
-package com.theberdakh.ieltsyourself.ui.add
+package com.theberdakh.ieltsyourself.ui.my_topics
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.theberdakh.ieltsyourself.databinding.ItemRecyclerTopicBinding
 
-class AddAdapter: RecyclerView.Adapter<AddAdapter.AddViewHolder>(){
+class MyTopicsAdapter: RecyclerView.Adapter<MyTopicsAdapter.AddViewHolder>(){
 
     inner class AddViewHolder(private val binding:ItemRecyclerTopicBinding): RecyclerView.ViewHolder(binding.root){
 

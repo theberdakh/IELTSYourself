@@ -21,8 +21,7 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
             TabLayoutMediator(tlHome, vpHome) {tab, position ->
                 when(position){
                     0-> tab.text = "Learn"
-                    1 -> tab.text = "My topics"
-                    2 -> tab.text = "All"
+                    1 -> tab.text = "Statistics"
                 }
             }.attach()
         }

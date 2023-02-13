@@ -3,7 +3,7 @@
 
 
     <style name="ShapeAppearanceOverlay.App" parent="">
-        <item name="cornerSize">30%</item>
+        <item name="cornerSize">20%</item>
     </style>
 
 </resources>

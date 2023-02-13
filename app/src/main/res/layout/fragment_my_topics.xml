@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+   <com.google.android.material.card.MaterialCardView
+       android:id="@+id/cv_my_topics_new_topic"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <com.google.android.material.imageview.ShapeableImageView
+               android:id="@+id/iv_my_topics_add_new"
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:padding="@dimen/dimen_8"
+               app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App"
+               android:src="@drawable/round_create_new_folder_24"/>
+           <TextView
+               android:id="@+id/tv_title"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/title_new_topic"
+               android:layout_alignStart="@id/iv_my_topics_add_new"
+               android:layout_marginStart="60dp"
+               android:textSize="16sp"
+               android:textColor="?colorOnSurface"
+               android:maxLines="1"
+               android:layout_alignParentEnd="true"
+               android:paddingTop="@dimen/dimen_8"
+               android:paddingHorizontal="@dimen/dimen_8"/>
+
+           <TextView
+               android:layout_below="@id/tv_title"
+               android:id="@+id/tv_level"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/subtitle_new_topic"
+               android:layout_alignStart="@id/tv_title"
+               android:paddingHorizontal="@dimen/dimen_8"/>
+
+
+
+
+       </RelativeLayout>
+
+
+
+   </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_4"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_my_topics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_recycler_topic" />
+
+
+
+</LinearLayout>

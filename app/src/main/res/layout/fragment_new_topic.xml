@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/dimen_32">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_new_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/title_new_topic"
+        app:navigationIcon="@drawable/round_arrow_back_24"
+        app:menu="@menu/menu_top_new_topic"/>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_new_topic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/dimen_32"
+        android:src="@mipmap/ic_launcher"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_new_topic_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:hint="@string/hint_topic">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_new_topic_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+</LinearLayout>
