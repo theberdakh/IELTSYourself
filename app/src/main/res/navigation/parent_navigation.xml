@@ -28,7 +28,8 @@
         tools:layout="@layout/fragment_my_topics" >
         <action
             android:id="@+id/action_myTopicsFragment_to_newTopicFragment"
-            app:destination="@id/newTopicFragment" />
+            app:destination="@id/newTopicFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/newTopicFragment"

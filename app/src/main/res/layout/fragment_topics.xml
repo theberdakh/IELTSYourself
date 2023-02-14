@@ -7,14 +7,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.topics.TopicsFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/tb_topics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/topics"
-        app:titleCentered="true"
-        app:menu="@menu/menu_top_topics"/>
-
 
 
 </LinearLayout>

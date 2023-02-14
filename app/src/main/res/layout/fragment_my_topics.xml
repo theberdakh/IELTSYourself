@@ -7,23 +7,6 @@
     android:orientation="vertical"
     tools:context=".ui.my_topics.MyTopicsFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/menu_top_my_topics"
-        app:navigationIcon="@drawable/round_arrow_back_24"
-        app:subtitle="Your topics"
-        app:title="@string/topics"
-        app:titleCentered="true"
-        app:subtitleCentered="true"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_my_topics"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_recycler_topic" />
-
 
 
 </LinearLayout>

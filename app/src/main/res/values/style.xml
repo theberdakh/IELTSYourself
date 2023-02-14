@@ -25,4 +25,13 @@
         <item name="android:padding">@dimen/dimen_8</item>
     </style>
 
+    <style name="ParentToolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">@color/white</item>
+        <item name="background">?colorPrimaryVariant</item>
+        <item name="titleCentered">true</item>
+        <item name="subtitleCentered">true</item>
+        <item name="navigationIcon">@drawable/round_arrow_back_24</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
+
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "467700089340",
+    "project_id": "ieltsyourself-9296e",
+    "storage_bucket": "ieltsyourself-9296e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467700089340:android:1041d9bf231d39e821f279",
+        "android_client_info": {
+          "package_name": "com.theberdakh.ieltsyourself"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467700089340-kkh22k0pgmobt6qp28k3au6q7c1vjgea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL9ls1tuq9LYvFK1ClpwOY0iEzFukB0x4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467700089340-kkh22k0pgmobt6qp28k3au6q7c1vjgea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

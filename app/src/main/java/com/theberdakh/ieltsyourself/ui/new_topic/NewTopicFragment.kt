@@ -27,6 +27,7 @@ class NewTopicFragment: Fragment(R.layout.fragment_new_topic) {
         navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
 
 
+
         binding.apply {
             tbNewTopic.setOnMenuItemClickListener {
                 when(it.itemId){

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/action_add_new_word"
         android:title="Add new word"
+        android:iconTint="@color/white"
         android:icon="@drawable/round_done_24"
         app:showAsAction="always"/>
 </menu>

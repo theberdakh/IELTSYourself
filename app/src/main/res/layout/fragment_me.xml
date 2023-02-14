@@ -7,78 +7,19 @@
     android:orientation="vertical"
     tools:context=".ui.me.MeFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleCentered="true"
-        app:title="Me" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_my_topics_new_topic"
-        android:layout_width="match_parent"
-        app:cardElevation="0dp"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_my_topics_add_new"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:padding="@dimen/dimen_8"
-                android:src="@mipmap/ic_launcher_round"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayProfile" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@id/iv_my_topics_add_new"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="60dp"
-                android:maxLines="1"
-                android:paddingHorizontal="@dimen/dimen_8"
-                android:paddingTop="@dimen/dimen_8"
-                android:text="Berdakh Tlepov"
-                android:textColor="?colorOnSurface"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tv_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_title"
-                android:layout_alignStart="@id/tv_title"
-                android:paddingHorizontal="@dimen/dimen_8"
-                android:text="theberdakh@gmail.com" />
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                style="@style/Widget.Material3.Button.TextButton.Icon"
-                android:text="@string/sign_out"
-                android:background="@android:color/transparent"
-                android:textSize="@dimen/text_14"
-                app:icon="@drawable/round_logout_24"
-                app:iconGravity="end"
-                android:layout_alignParentEnd="true"
-                tools:ignore="RelativeOverlap" />
-
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_8" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/you"
         android:padding="@dimen/dimen_8"
-        android:textColor="?colorPrimary"/>
+        android:text="@string/you"
+        android:textColor="?colorPrimary" />
+
+    <TextView
+        android:id="@+id/tv_me_account"
+        style="@style/SettingsTextView"
+        android:text="@string/account"
+        app:drawableStartCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/tv_me_topics"
@@ -99,16 +40,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings"
         android:padding="@dimen/dimen_8"
-        android:textColor="?colorPrimary"/>
+        android:text="@string/settings"
+        android:textColor="?colorPrimary" />
 
 
     <TextView
         style="@style/SettingsTextView"
         android:text="@string/game_settings"
-        app:drawableStartCompat="@drawable/round_settings_24"
-        />
+        app:drawableStartCompat="@drawable/round_settings_24" />
 
     <TextView
         style="@style/SettingsTextView"
@@ -122,9 +62,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/about"
         android:padding="@dimen/dimen_8"
-        android:textColor="?colorPrimary"/>
+        android:text="@string/about"
+        android:textColor="?colorPrimary" />
 
     <TextView
         style="@style/SettingsTextView"

@@ -4,5 +4,6 @@
     <item android:id="@+id/newWordFragment"
         app:showAsAction="always"
         android:title="@string/add_new_word"
+        android:iconTint="@color/white"
         android:icon="@drawable/round_add_24"/>
 </menu>

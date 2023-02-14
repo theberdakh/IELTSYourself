@@ -11,6 +11,9 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tb_new_word"
         app:title="@string/title_new_word"
+        android:background="?colorPrimaryVariant"
+        app:titleTextColor="@color/white"
+        app:navigationIconTint="@color/white"
         app:titleCentered="true"
         app:navigationIcon="@drawable/round_arrow_back_24"
         app:menu="@menu/menu_top_new_word"

@@ -9,6 +9,10 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tb_topic"
+        android:background="?colorPrimaryVariant"
+        app:titleTextColor="@color/white"
+        app:subtitleTextColor="@color/white"
+        app:navigationIconTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Name of the topic"
