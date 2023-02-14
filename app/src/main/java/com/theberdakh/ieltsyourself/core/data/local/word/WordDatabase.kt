@@ -17,9 +17,7 @@ abstract class WordDatabase: RoomDatabase() {
 
         fun getInstance(context: Context): WordDatabase {
             val tempInstance = INSTANCE
-            if (tempInstance!=null){
-                return tempInstance
-            }
+            if (tempInstance!=null) return tempInstance
 
             val instance = Room.databaseBuilder(context.applicationContext,
             WordDatabase::class.java, DB_NAME)

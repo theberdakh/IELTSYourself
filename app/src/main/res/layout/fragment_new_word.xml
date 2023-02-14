@@ -11,6 +11,8 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tb_new_word"
         app:title="@string/title_new_word"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/round_arrow_back_24"
         app:menu="@menu/menu_top_new_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -45,22 +47,6 @@
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_more_new_word"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="@string/more_fields"
-        android:layout_margin="@dimen/dimen_8"
-        android:padding="@dimen/dimen_8"
-        android:textSize="@dimen/text_14"
-        android:textStyle="bold"
-        app:strokeWidth="0dp"
-        app:iconGravity="textEnd"
-        app:icon="@drawable/round_keyboard_arrow_down_24" />
 
 
 

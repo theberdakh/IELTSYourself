@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dimen_8"
+    app:cardCornerRadius="@dimen/dimen_16">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_4"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_item_recycler_learn"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"
+            android:layout_margin="@dimen/dimen_4"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App"/>
+
+        <TextView
+            android:id="@+id/tv_title_item_recycler_learn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_new_topic"
+            android:textSize="@dimen/text_24"
+            android:padding="@dimen/dimen_8"
+            android:textColor="?colorOnSurface"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            app:strokeWidth="0dp"
+            app:icon="@drawable/round_play_arrow_24"
+            app:iconGravity="end"
+            android:layout_gravity="end"
+            android:text = "@string/text_button_continue"
+            android:textSize="@dimen/text_14"/>
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -12,8 +12,6 @@ abstract class TopicDatabase : RoomDatabase() {
     abstract fun getTopicDao(): TopicDao
 
     companion object {
-
-
         @Volatile
         private var INSTANCE: TopicDatabase? = null
 

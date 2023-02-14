@@ -1,36 +1,34 @@
 package com.theberdakh.ieltsyourself.ui.new_topic
 
 import android.os.Bundle
-import android.text.Layout.Directions
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Adapter
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import androidx.annotation.LayoutRes
-import androidx.core.view.children
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.ListAdapter
 import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.core.presentation.NewTopicViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentNewTopicBinding
+import kotlinx.coroutines.Dispatchers
 
 class NewTopicFragment: Fragment(R.layout.fragment_new_topic) {
     private lateinit var binding: FragmentNewTopicBinding
     private lateinit var viewModel: NewTopicViewModel
-
+    private lateinit var navController: NavController
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNewTopicBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity())[NewTopicViewModel::class.java]
+        navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
 
 
         binding.apply {
-            tbNewTopic.menu.getItem(R.menu.menu_top_new_topic).setOnMenuItemClickListener {
+            tbNewTopic.setOnMenuItemClickListener {
                 when(it.itemId){
                     R.id.action_add_new_topic -> {
                         navigateToTopicFragment()
@@ -38,18 +36,30 @@ class NewTopicFragment: Fragment(R.layout.fragment_new_topic) {
                 }
                 true
             }
+
+            etNewTopicName.addTextChangedListener {
+                tilNewTopicName.error = null
+            }
+
+            tbNewTopic.setNavigationOnClickListener {
+                navigateToMainFragment()
+            }
+
+
         }
+    }
+
+    private fun navigateToMainFragment() {
+       // navController.navigate(R.id.action_newTopicFragment_to_mainFragment)
     }
 
     private fun navigateToTopicFragment() {
         binding.apply {
-            if (etNewTopicName.text.toString().isBlank()){
-                val topic = Topic(name = etNewTopicName.text.toString())
-                lifecycleScope.launchWhenResumed {
-                    viewModel.addNewTopic(topic)
-                }
-                val navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
-
+            if (etNewTopicName.text.toString().isEmpty()){
+                tilNewTopicName.error = "The topic name can not be empty!"
+            }
+            else {
+                navController.navigate(R.id.action_mainFragment_to_myTopicsFragment)
             }
         }
     }

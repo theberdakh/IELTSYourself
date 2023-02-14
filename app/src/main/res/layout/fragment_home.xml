@@ -9,18 +9,9 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
+        app:titleCentered="true"
         android:layout_height="wrap_content"
         app:title="@string/app_name" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 
 </LinearLayout>

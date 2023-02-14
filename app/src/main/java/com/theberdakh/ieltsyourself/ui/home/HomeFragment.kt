@@ -14,16 +14,7 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
 
-        val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, requireActivity().lifecycle)
         binding.apply {
-            vpHome.adapter = adapter
-
-            TabLayoutMediator(tlHome, vpHome) {tab, position ->
-                when(position){
-                    0-> tab.text = "Learn"
-                    1 -> tab.text = "Statistics"
-                }
-            }.attach()
         }
 
     }

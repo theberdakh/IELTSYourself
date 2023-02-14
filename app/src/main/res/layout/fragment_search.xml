@@ -10,17 +10,9 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:titleCentered="true"
         app:title="Search"
         app:menu="@menu/menu_top_search"/>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tb_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_search"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

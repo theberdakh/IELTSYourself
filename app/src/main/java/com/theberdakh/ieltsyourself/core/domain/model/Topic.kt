@@ -13,6 +13,8 @@ data class Topic(
     val id: Int = 0,
     @ColumnInfo("name")
     val name: String,
+    @ColumnInfo("description")
+    val description: String = "",
     @ColumnInfo( "level")
     val level: Int = 0,
     @ColumnInfo("size")
@@ -21,12 +23,4 @@ data class Topic(
     val status: Int = 0,
     @ColumnInfo( "image")
     val image: String = "0",
-    @ColumnInfo("listening")
-    val listening: Int = 0,
-    @ColumnInfo("reading")
-    val reading: Int = 0,
-    @ColumnInfo("writing")
-    val writing: Int = 0,
-    @ColumnInfo("speaking")
-    val speaking: Int = 0
 ): Parcelable

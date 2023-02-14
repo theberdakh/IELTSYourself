@@ -3,66 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_title"
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:textColor="?colorOnSurface"
-        android:padding="8dp"
-        android:text="@string/simple_word_title"
-        android:textSize="34sp"
-        android:textStyle="bold" />
+        app:title="@string/word"
+        app:titleCentered="true" />
 
-    <com.google.android.material.chip.ChipGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/WordChip"
             android:text="@string/save"
-            app:chipIconTint="?colorOnSurface"
             app:chipIcon="@drawable/outline_star_outline_24" />
 
         <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/WordChip"
             android:text="@string/listen"
-            app:chipIconTint="?colorOnSurface"
             app:chipIcon="@drawable/baseline_volume_up_24" />
 
         <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/WordChip"
             android:text="@string/translate"
-            app:chipIconTint="?colorOnSurface"
-            app:chipIcon="@drawable/round_translate_24"
-            app:iconStartPadding="4dp" />
+            app:chipIcon="@drawable/round_translate_24" />
+    </LinearLayout>
 
-    </com.google.android.material.chip.ChipGroup>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:layout_margin="@dimen/dimen_8"
+        android:text="@string/sample_word_meaning"
         android:textColor="?colorOnSurface"
-        android:padding="8dp"
-        android:text="@string/sample_word_meaning" />
+        android:textSize="@dimen/text_14" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8"
         android:padding="8dp"
-        android:fontFamily="serif"
-        android:text="@string/sample_word_example"/>
+        android:text="@string/sample_word_example" />
+
+
 </LinearLayout>

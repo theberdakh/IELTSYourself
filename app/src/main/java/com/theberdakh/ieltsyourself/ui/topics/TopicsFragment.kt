@@ -15,15 +15,6 @@ class TopicsFragment : Fragment(R.layout.fragment_topics) {
 
         binding.apply {
 
-            vpTopics.adapter = ViewPagerTopicsAdapter(requireActivity().supportFragmentManager, requireActivity().lifecycle)
-
-            TabLayoutMediator(tlTopics, vpTopics) { tab, position ->
-                when (position){
-                    0 -> tab.text = "All"
-                    else -> tab.text = "My topics"
-                }
-            }.attach()
-
         }
     }
 }

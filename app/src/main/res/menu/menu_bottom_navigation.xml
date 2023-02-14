@@ -4,13 +4,13 @@
         android:title="@string/title_home"
         android:icon="@drawable/round_home_24"/>
     <item android:id="@+id/topicsFragment"
-        android:title="Topics"
+        android:title="@string/topics"
         android:icon="@drawable/round_topic_24"/>
     <item android:id="@+id/searchFragment"
         android:title="@string/title_search"
         android:icon="@drawable/round_search_24"/>
     <item android:id="@+id/meFragment"
-        android:title="Me"
+        android:title="@string/me"
         android:icon="@drawable/baseline_account_circle_24"/>
 
 </menu>

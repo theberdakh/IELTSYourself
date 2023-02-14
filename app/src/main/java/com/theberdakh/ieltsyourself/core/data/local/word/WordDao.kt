@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface WordDao {
 
-    @Query("SELECT * from ${Word.TABLE_NAME}")
+    @Query("SELECT * from words")
     suspend fun getAllWords(): List<Word>
 
-    @Query("SELECT * from ${Word.TABLE_NAME} WHERE is_saved = 1")
+    @Query("SELECT * from words WHERE is_saved = 1")
     suspend fun getAllSavedWords(): List<Word>
 
-    @Query("SELECT * FROM ${Word.TABLE_NAME} WHERE name LIKE :searchValue")
+    @Query("SELECT * FROM words WHERE name LIKE :searchValue")
     suspend fun searchAllWords(searchValue: String): List<Word>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

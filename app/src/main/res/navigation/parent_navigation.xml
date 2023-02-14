@@ -10,20 +10,31 @@
         android:name="com.theberdakh.ieltsyourself.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
+
         <action
-            android:id="@+id/action_mainFragment_to_newTopicFragment"
+            android:id="@+id/action_mainFragment_to_myTopicsFragment"
+            app:destination="@id/myTopicsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_savedWordsFragment"
+            app:destination="@id/savedWordsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myTopicsFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.my_topics.MyTopicsFragment"
+        android:label="fragment_my_topics"
+        tools:layout="@layout/fragment_my_topics" >
+        <action
+            android:id="@+id/action_myTopicsFragment_to_newTopicFragment"
             app:destination="@id/newTopicFragment" />
     </fragment>
     <fragment
-        android:id="@+id/newWordFragment"
-        android:name="com.theberdakh.ieltsyourself.ui.new_word.NewWordFragment"
-        android:label="fragment_new_word"
-        tools:layout="@layout/fragment_new_word" />
-    <fragment
         android:id="@+id/newTopicFragment"
         android:name="com.theberdakh.ieltsyourself.ui.new_topic.NewTopicFragment"
-        android:label="NewTopicFragment"
-        tools:layout="@layout/fragment_new_topic">
+        android:label="fragment_new_topic"
+        tools:layout="@layout/fragment_new_topic" >
         <action
             android:id="@+id/action_newTopicFragment_to_topicFragment"
             app:destination="@id/topicFragment" />
@@ -33,10 +44,25 @@
         android:name="com.theberdakh.ieltsyourself.ui.topic.TopicFragment"
         android:label="fragment_topic"
         tools:layout="@layout/fragment_topic" >
-        <argument
-            android:name="Topic"
-            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
+        <action
+            android:id="@+id/action_topicFragment_to_newWordFragment2"
+            app:destination="@id/newWordFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/newWordFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.new_word.NewWordFragment"
+        android:label="fragment_new_word"
+        tools:layout="@layout/fragment_new_word" />
+    <fragment
+        android:id="@+id/savedWordsFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.saved_words.SavedWordsFragment"
+        android:label="fragment_saved_words"
+        tools:layout="@layout/fragment_saved_words" />
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.learn.LearnFragment"
+        android:label="fragment_learn"
+        tools:layout="@layout/fragment_learn" />
 
 
 </navigation>

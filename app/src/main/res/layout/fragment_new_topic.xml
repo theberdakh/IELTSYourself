@@ -3,13 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
     android:orientation="vertical"
-    app:cardCornerRadius="@dimen/dimen_32">
+    app:cardCornerRadius="@dimen/dimen_32"
+    tools:context=".ui.new_topic.NewTopicFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tb_new_topic"
         android:layout_width="match_parent"
+        app:titleCentered="true"
         android:layout_height="wrap_content"
         app:title="@string/title_new_topic"
         app:navigationIcon="@drawable/round_arrow_back_24"
@@ -22,6 +25,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginVertical="@dimen/dimen_32"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App" />
 
@@ -35,6 +39,21 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_topic_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_new_topic_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dimen_8"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:hint="@string/hint_topic_description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_new_topic_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.my_topics.MyTopicsFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.saved_words.SavedWordsFragment"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/menu_top_my_topics"
-        app:navigationIcon="@drawable/round_arrow_back_24"
-        app:subtitle="Your topics"
-        app:title="@string/topics"
+        app:title="@string/words"
         app:titleCentered="true"
-        app:subtitleCentered="true"/>
+        app:subtitleCentered="true"
+        app:subtitle="@string/saved_words"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_my_topics"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_recycler_topic" />
-
-
+        tools:listitem="@layout/item_recycler_word"/>
 
 </LinearLayout>

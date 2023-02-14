@@ -15,15 +15,6 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
 
         binding.apply {
 
-            vpSearch.adapter = ViewPagerSearchAdapter(requireActivity().supportFragmentManager, requireActivity().lifecycle)
-
-            TabLayoutMediator(tbSearch, vpSearch){tab, position->
-                when(position){
-                    0 -> tab.text = "All words"
-                    else -> tab.text = "Favorites"
-                }
-            }.attach()
-
         }
     }
 }
