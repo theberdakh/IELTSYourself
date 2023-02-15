@@ -7,18 +7,6 @@
     tools:context=".ui.saved_words.SavedWordsFragment"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/words"
-        android:background="?colorPrimaryVariant"
-        app:titleTextColor="@color/white"
-        app:navigationIconTint="@color/white"
-        app:subtitleTextColor="@color/white"
-        app:titleCentered="true"
-        app:subtitleCentered="true"
-        app:subtitle="@string/saved_words"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

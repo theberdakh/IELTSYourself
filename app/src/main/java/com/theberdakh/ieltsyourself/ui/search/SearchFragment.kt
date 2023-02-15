@@ -8,21 +8,26 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.tabs.TabLayoutMediator
 import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.databinding.FragmentSearchBinding
 
 class SearchFragment: Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
+    private lateinit var menuHost: FragmentActivity
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
-        val menuHost = requireActivity()
-        (activity as AppCompatActivity).supportActionBar?.title = "Search"
+        menuHost = requireActivity()
 
-        binding.apply {
+        addAppBarTitle()
+        addMenuProvider()
 
-        }
+
+    }
+
+    private fun addMenuProvider() {
 
         menuHost.addMenuProvider(object: MenuProvider{
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -44,5 +49,10 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
             }
 
         })
+    }
+
+    private fun addAppBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = "Search"
+
     }
 }

@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical"
-    tools:context=".ui.new_word.NewWordFragment">
-
+    android:gravity="center"
+    android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_new_word_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_word"
         android:layout_margin="@dimen/dimen_8"
+        android:hint="@string/hint_sign_in_email"
         android:padding="@dimen/dimen_8">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_word_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -29,19 +27,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_8"
-        android:hint="@string/hint_word_meaning"
-        android:padding="@dimen/dimen_8">
+        android:hint="@string/hint_sign_in_password"
+        android:padding="@dimen/dimen_8"
+        app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_word_meaning"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <TextView
+        style="@style/SettingsTextView"
+        android:textAlignment="center"
+        android:text="@string/or_sign_in_with" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_topic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:padding="@dimen/dimen_8"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayProfile" />
 
-
+    <TextView
+       style="@style/SettingsTextView"
+        android:text="@string/text_no_account"
+        android:textAlignment="center"/>
 
 </LinearLayout>

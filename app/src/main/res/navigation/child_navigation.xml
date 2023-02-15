@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.theberdakh.ieltsyourself.ui.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/topicsFragment"
         android:name="com.theberdakh.ieltsyourself.ui.topics.TopicsFragment"
-        android:label="TopicsFragment"
+        android:label="Topics"
         tools:layout="@layout/fragment_topics"/>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.theberdakh.ieltsyourself.ui.search.SearchFragment"
-        android:label="fragment_search"
+        android:label="Search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/meFragment"
         android:name="com.theberdakh.ieltsyourself.ui.me.MeFragment"
-        android:label="fragment_me"
+        android:label="Me"
         tools:layout="@layout/fragment_me" />
 </navigation>

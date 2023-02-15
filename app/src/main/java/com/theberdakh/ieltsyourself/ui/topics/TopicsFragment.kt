@@ -9,20 +9,32 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.tabs.TabLayoutMediator
 import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.databinding.FragmentTopicsBinding
 
 class TopicsFragment : Fragment(R.layout.fragment_topics) {
     private lateinit var binding: FragmentTopicsBinding
+    private lateinit var menuHost: FragmentActivity
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentTopicsBinding.bind(view)
-        val menuHost = requireActivity()
-
-        (activity as AppCompatActivity).supportActionBar?.title = "Topics"
+         menuHost = requireActivity()
 
 
+        setAppBarTitle()
+        addMenuProvider()
+
+
+
+        binding.apply {
+
+
+        }
+    }
+
+    private fun addMenuProvider() {
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 if (menu.hasVisibleItems()){
@@ -44,13 +56,11 @@ class TopicsFragment : Fragment(R.layout.fragment_topics) {
 
         })
 
+    }
 
+    private fun setAppBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = "Topics"
 
-
-        binding.apply {
-
-
-        }
     }
 
 }
