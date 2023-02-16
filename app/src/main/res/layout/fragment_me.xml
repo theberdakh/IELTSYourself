@@ -8,6 +8,14 @@
     tools:context=".ui.me.MeFragment">
 
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/me"
+        app:titleCentered="true"/>
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

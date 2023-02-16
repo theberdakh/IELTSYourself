@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    //DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
     //Kotlin components
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20-Beta"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"

@@ -27,27 +27,6 @@ class NewTopicFragment: Fragment(R.layout.fragment_new_topic) {
         navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
 
 
-
-        binding.apply {
-            tbNewTopic.setOnMenuItemClickListener {
-                when(it.itemId){
-                    R.id.action_add_new_topic -> {
-                        navigateToTopicFragment()
-                    }
-                }
-                true
-            }
-
-            etNewTopicName.addTextChangedListener {
-                tilNewTopicName.error = null
-            }
-
-            tbNewTopic.setNavigationOnClickListener {
-                navigateToMainFragment()
-            }
-
-
-        }
     }
 
     private fun navigateToMainFragment() {
