@@ -14,9 +14,10 @@ import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.core.presentation.NewTopicViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentNewTopicBinding
+import com.theberdakh.ieltsyourself.utils.makeToast
 import kotlinx.coroutines.Dispatchers
 
-class NewTopicFragment: Fragment(R.layout.fragment_new_topic) {
+class NewTopicFragment : Fragment(R.layout.fragment_new_topic) {
     private lateinit var binding: FragmentNewTopicBinding
     private lateinit var viewModel: NewTopicViewModel
     private lateinit var navController: NavController
@@ -26,21 +27,54 @@ class NewTopicFragment: Fragment(R.layout.fragment_new_topic) {
         viewModel = ViewModelProvider(requireActivity())[NewTopicViewModel::class.java]
         navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
 
+        setBackNavigation()
+        navigateToTopicFragment()
+
+
 
     }
 
-    private fun navigateToMainFragment() {
-       // navController.navigate(R.id.action_newTopicFragment_to_mainFragment)
+    private fun addTextChangedListener(): Boolean {
+        var condition = false
+        binding.apply {
+            etNewTopicName.addTextChangedListener {
+                if (it.toString().isEmpty()) {
+                    tilNewTopicName.error = getString(R.string.til_error_empty)
+                } else {
+                    tilNewTopicName.error = null
+                    condition = true
+                }
+            }
+        }
+        return condition
+    }
+
+    private fun setBackNavigation() {
+        binding.tbNewTopic.setNavigationOnClickListener {
+            navController.popBackStack()
+        }
     }
 
     private fun navigateToTopicFragment() {
+        addTextChangedListener()
         binding.apply {
-            if (etNewTopicName.text.toString().isEmpty()){
-                tilNewTopicName.error = "The topic name can not be empty!"
+            tbNewTopic.setOnMenuItemClickListener { menuItem ->
+                when(menuItem.itemId){
+                    R.id.action_top_new_topic -> {
+                        if (etNewTopicName.text.toString().isNotEmpty()){
+                            navController.navigate(NewTopicFragmentDirections.actionNewTopicFragmentToTopicFragment(Topic(name = etNewTopicName.text.toString())))
+                            true
+                        }
+                        else {
+                            tilNewTopicName.error = getString(R.string.til_error_empty)
+                            false
+                        }
+                    }
+                    else -> {
+                        false}
+                }
             }
-            else {
-                navController.navigate(R.id.action_mainFragment_to_myTopicsFragment)
-            }
+
         }
     }
 }

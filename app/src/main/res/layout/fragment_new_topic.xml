@@ -10,6 +10,15 @@
     tools:context=".ui.new_topic.NewTopicFragment">
 
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_new_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/title_new_topic"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/round_arrow_back_24"
+        app:menu="@menu/menu_top_new_topic"/>
+
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_new_topic"

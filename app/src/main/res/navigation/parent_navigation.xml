@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_learnFragment"
             app:destination="@id/learnFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
     </fragment>
     <fragment
         android:id="@+id/myTopicsFragment"
@@ -28,6 +31,7 @@
         <action
             android:id="@+id/action_myTopicsFragment_to_newTopicFragment"
             app:destination="@id/newTopicFragment"
+            app:launchSingleTop="false"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -37,7 +41,8 @@
         tools:layout="@layout/fragment_new_topic" >
         <action
             android:id="@+id/action_newTopicFragment_to_topicFragment"
-            app:destination="@id/topicFragment" />
+            app:destination="@id/topicFragment"
+            app:popUpTo="@id/myTopicsFragment" />
     </fragment>
     <fragment
         android:id="@+id/topicFragment"
@@ -45,8 +50,11 @@
         android:label="Topic"
         tools:layout="@layout/fragment_topic" >
         <action
-            android:id="@+id/action_topicFragment_to_newWordFragment2"
+            android:id="@+id/action_topicFragment_to_newWordFragment"
             app:destination="@id/newWordFragment" />
+        <argument
+            android:name="Topic"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
     </fragment>
     <fragment
         android:id="@+id/newWordFragment"
@@ -58,9 +66,7 @@
         android:name="com.theberdakh.ieltsyourself.ui.saved_words.SavedWordsFragment"
         android:label="Saved words"
         tools:layout="@layout/fragment_saved_words" >
-        <action
-            android:id="@+id/action_savedWordsFragment_to_newWordFragment"
-            app:destination="@id/newWordFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/learnFragment"

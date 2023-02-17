@@ -6,6 +6,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/sign_in"
+        app:titleCentered="true"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_new_word_name"
         android:layout_width="match_parent"

@@ -1,53 +1,45 @@
 package com.theberdakh.ieltsyourself.ui.home
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import com.google.android.material.tabs.TabLayoutMediator
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.theberdakh.ieltsyourself.R
+import com.theberdakh.ieltsyourself.core.domain.model.Game
+import com.theberdakh.ieltsyourself.core.domain.model.Topic
+import com.theberdakh.ieltsyourself.core.domain.model.objects.Games
 import com.theberdakh.ieltsyourself.databinding.FragmentHomeBinding
+import com.theberdakh.ieltsyourself.ui.main.MainFragmentDirections
 
 class HomeFragment: Fragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var menuHost: FragmentActivity
+    private lateinit var navController: NavController
+    private var _adapter: HomeRecyclerAdapter? = null
+    private val adapter get() = _adapter!!
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
-        menuHost = requireActivity()
 
-        addMenuProvider()
-        setAppBarTitle()
-
+        _adapter = HomeRecyclerAdapter()
+        navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
 
 
-        binding.apply {
+        adapter.submitList(Games.getGames())
+        binding.rvHome.adapter = adapter
+
+        adapter.setOnCardClickedListener { game->
+            navigateToTopicsFragment(game)
+        }
+
+        adapter.setOnPractiseClickedListener {
 
         }
 
+
     }
 
-    private fun setAppBarTitle() {
-        (activity as AppCompatActivity).supportActionBar?.title = "Home"
-    }
-
-    private fun addMenuProvider() {
-        menuHost.addMenuProvider(object : MenuProvider{
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                if (menu.hasVisibleItems()){
-                    menu.clear()
-                }
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return true
-            }
-
-        })
+    private fun navigateToTopicsFragment(game: Game) {
+       // navController.navigate()
     }
 }

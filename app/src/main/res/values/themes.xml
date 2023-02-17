@@ -6,6 +6,7 @@
         <item name="colorPrimaryVariant">@color/blue_700</item>
         <item name="android:colorPrimaryDark">@color/blue_700</item>
 
+        <item name="colorSurface">@color/white</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
 

@@ -8,11 +8,19 @@
     tools:context=".ui.topics.TopicsFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_topics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="@string/topics"
+        app:subtitleCentered="true"
         app:titleCentered="true"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_topics"
+        tools:listitem="@layout/item_recycler_topic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
 </LinearLayout>

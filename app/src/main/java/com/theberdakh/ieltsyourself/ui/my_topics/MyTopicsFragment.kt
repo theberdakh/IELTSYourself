@@ -3,6 +3,7 @@ package com.theberdakh.ieltsyourself.ui.my_topics
 import android.app.Activity
 import android.os.Bundle
 import android.view.*
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -24,88 +25,35 @@ import com.theberdakh.ieltsyourself.utils.makeToast
 class MyTopicsFragment : Fragment(R.layout.fragment_my_topics) {
     private lateinit var binding: FragmentMyTopicsBinding
     private lateinit var navController: NavController
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var menuHost: FragmentActivity
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMyTopicsBinding.bind(view)
-        menuHost = requireActivity()
         navController = requireActivity().findNavController(R.id.parent_container)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
 
-        showOnBackButton()
-
-        addMenuProvider()
+        binding.apply {
 
 
-    }
-
-    override fun onCreateContextMenu(
-        menu: ContextMenu,
-        v: View,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-
-
-    }
-
-    private fun addFragmentMenuProvider() {
-
-        val menuHost2 = requireActivity()
-
-        menuHost2.addMenuProvider(object : MenuProvider{
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                if (menu.hasVisibleItems()) {
-                    menu.clear()
-                }
-                menuInflater.inflate(R.menu.menu_top_my_topics, menu)
+            tbMyTopics.setNavigationOnClickListener{
+                navController.popBackStack()
             }
 
-            override fun onMenuItemSelected(menuItem: MenuItem)= when (menuItem.itemId) {
-                R.id.action_top_my_topics -> {
-                    makeToast("Item clicked")
-                    navigateToNewTopicFragment()
-                    true
-                }
-                else -> false
-            }
-
-        })
-    }
-
-    private fun addMenuProvider() {
-        menuHost.addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                if (menu.hasVisibleItems()) {
-                    menu.clear()
-                }
-                menuInflater.inflate(R.menu.menu_top_my_topics, menu)
-            }
-
-
-            override fun onMenuItemSelected(menuItem: MenuItem) = when (menuItem.itemId) {
+            tbMyTopics.setOnMenuItemClickListener {menuItem->
+                 when(menuItem.itemId){
                     R.id.action_top_my_topics -> {
-                        makeToast("Item clicked")
                         navigateToNewTopicFragment()
-                         true
+                        makeToast("Ok")
+                        true
                     }
-                    else -> {
-                        makeToast("Clicked")
-                        false
-                    }
-                }
+                     else -> {false}
+                 }
+            }
+        }
 
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
-    private fun showOnBackButton() {
-        (activity as AppCompatActivity).setupActionBarWithNavController(
-            navController,
-            appBarConfiguration
-        )
-    }
+
+
 
     private fun navigateToNewTopicFragment() {
         navController.navigate(MyTopicsFragmentDirections.actionMyTopicsFragmentToNewTopicFragment())

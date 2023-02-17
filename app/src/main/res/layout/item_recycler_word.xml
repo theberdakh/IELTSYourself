@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp"
             android:paddingTop="8dp"
-            android:text="@string/simple_word_title"
+            android:text= "@string/simple_word_title"
             android:textAppearance="?textAppearanceBody1"
             app:drawableEndCompat="@drawable/round_star_24" />
 
@@ -29,6 +29,7 @@
             android:paddingBottom="8dp"
             android:text="@string/simple_word_subtitle"
             android:enabled="false"/>
+
     </LinearLayout>
 
 

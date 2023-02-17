@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".ui.my_topics.MyTopicsFragment">
 
-
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_my_topics"
+        app:navigationIcon="@drawable/round_arrow_back_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleCentered="true"
+        app:title="@string/my_topics"
+        app:menu="@menu/menu_top_my_topics"/>
 
 </LinearLayout>

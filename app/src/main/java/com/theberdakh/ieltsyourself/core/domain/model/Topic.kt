@@ -23,4 +23,10 @@ data class Topic(
     val status: Int = 0,
     @ColumnInfo( "image")
     val image: String = "0",
-): Parcelable
+): Parcelable {
+    companion object {
+        const val NOT_STARTED = 0
+        const val STARTED = 1
+        const val LEARNED = 2
+    }
+}

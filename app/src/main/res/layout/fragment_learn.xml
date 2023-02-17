@@ -8,6 +8,7 @@
     tools:context=".ui.learn.LearnFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_learn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:subtitle="Question 1 / 15"
@@ -17,6 +18,7 @@
 
 
     <TextView
+        android:id="@+id/tv_task_learn"
         android:layout_marginTop="@dimen/dimen_32"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,21 +34,25 @@
         android:layout_margin="@dimen/dimen_8">
 
         <RadioButton
+            android:id="@+id/rb_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sample_game_option" />
 
         <RadioButton
+            android:id="@+id/rb_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sample_game_option" />
 
         <RadioButton
+            android:id="@+id/rb_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sample_game_option" />
 
         <RadioButton
+            android:id="@+id/rb_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sample_game_option" />

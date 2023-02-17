@@ -5,14 +5,14 @@
     <string name="simple_topic_title">Fun and learning</string>
     <string name="simple_topic_subtitle">Intermediate</string>
     <string name="simple_word_title">Book</string>
-    <string name="simple_word_subtitle">Phrasal verb</string>
+    <string name="simple_word_subtitle">An item to read things</string>
     <string name="action_search">Search</string>
     <string name="save">Save</string>
     <string name="listen">Listen</string>
     <string name="translate">Translate</string>
     <string name="sample_word_meaning">This word means something meaningful and clear</string>
     <string name="sample_word_example">Example: Lorem ipsum lorem ipsum lorem ipsum.</string>
-    <string name="find_meaning">What does this word mean: ?</string>
+    <string name="find_meaning">What does this word mean: <b>%s</b></string>
     <string name="sample_game_option">Option A</string>
     <string name="title_translate_dialog">Translation</string>
     <string name="close">Close</string>
@@ -60,6 +60,13 @@
     <string name="hint_sign_in_password">Password</string>
     <string name="or_sign_in_with">Or sign in with</string>
     <string name="text_no_account">No account? Click to create a new account</string>
+    <string name="simple_word_size">12 words</string>
+    <string name="til_error_empty">The topic name can not be empty!</string>
+    <string name="subtitle_topic">%d words</string>
+    <string name="learn">Start learning</string>
+    <string name="practise">Practise</string>
+    <string name="all_topics">All topics</string>
+    <string name="choose_a_topic_to_practise">Choose a topic to practise</string>
 
 
 </resources>

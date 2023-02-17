@@ -23,6 +23,28 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <TextView
+            android:id="@+id/tv_title_topic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/simple_topic_title"
+            app:layout_constraintStart_toEndOf="@id/iv_topic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/text_18"
+            android:textColor="?actionMenuTextColor"
+            android:padding="@dimen/dimen_8"/>
+
+        <TextView
+            android:id="@+id/tv_description_topic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/simple_word_size"
+            app:layout_constraintStart_toEndOf="@id/iv_topic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_topic"
+            android:paddingHorizontal="@dimen/dimen_8"
+            android:textSize="@dimen/text_14"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
