@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ui.choose.ChooseFragment">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/choose_a_topic_to_practise"
+        app:subtitleCentered="true"
+        app:navigationIcon="@drawable/round_arrow_back_24"
+        app:titleCentered="true"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_choose"
+        tools:listitem="@layout/item_recycler_topic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+</LinearLayout>

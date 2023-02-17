@@ -17,11 +17,14 @@
             android:id="@+id/action_mainFragment_to_savedWordsFragment"
             app:destination="@id/savedWordsFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_learnFragment"
-            app:destination="@id/learnFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_topicFragment"
             app:destination="@id/topicFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_developerFragment"
+            app:destination="@id/developerFragment" />
     </fragment>
     <fragment
         android:id="@+id/myTopicsFragment"
@@ -69,10 +72,31 @@
 
     </fragment>
     <fragment
-        android:id="@+id/learnFragment"
-        android:name="com.theberdakh.ieltsyourself.ui.learn.LearnFragment"
+        android:id="@+id/practiseFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.practise.PractiseFragment"
         android:label="Learn"
-        tools:layout="@layout/fragment_learn" />
+        tools:layout="@layout/fragment_practise" >
+        <argument
+            android:name="Topic"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.choose.ChooseFragment"
+        android:label="fragment_choose"
+        tools:layout="@layout/fragment_choose" >
+        <action
+            android:id="@+id/action_chooseFragment_to_learnFragment"
+            app:destination="@id/practiseFragment" />
+        <argument
+            android:name="Game"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Game" />
+    </fragment>
+    <fragment
+        android:id="@+id/developerFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.developer.DeveloperFragment"
+        android:label="fragment_developer"
+        tools:layout="@layout/fragment_developer" />
 
 
 </navigation>

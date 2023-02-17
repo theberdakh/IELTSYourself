@@ -39,12 +39,19 @@ class MeFragment: Fragment(R.layout.fragment_me){
                     Settings.SAVED_WORDS -> {
 
                     }
+                    Settings.DEVELOPER -> {
+                        navigateToDeveloperFragment()
+                    }
                 }
             }
 
         }
 
 
+    }
+
+    private fun navigateToDeveloperFragment() {
+        navController.navigate(MainFragmentDirections.actionMainFragmentToDeveloperFragment())
     }
 
     private fun navigateToMyTopicsFragment() {

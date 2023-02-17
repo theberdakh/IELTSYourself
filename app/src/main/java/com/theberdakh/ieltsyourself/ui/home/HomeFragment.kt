@@ -15,6 +15,7 @@ import com.theberdakh.ieltsyourself.ui.main.MainFragmentDirections
 class HomeFragment: Fragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var navController: NavController
+    private lateinit var childNavController: NavController
     private var _adapter: HomeRecyclerAdapter? = null
     private val adapter get() = _adapter!!
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,17 +30,16 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         binding.rvHome.adapter = adapter
 
         adapter.setOnCardClickedListener { game->
-            navigateToTopicsFragment(game)
         }
 
-        adapter.setOnPractiseClickedListener {
-
+        adapter.setOnPractiseClickedListener {game->
+            navigateToChooseFragment(game)
         }
 
 
     }
 
-    private fun navigateToTopicsFragment(game: Game) {
-       // navController.navigate()
+    private fun navigateToChooseFragment(game: Game) {
+        navController.navigate(MainFragmentDirections.actionMainFragmentToChooseFragment(game))
     }
 }

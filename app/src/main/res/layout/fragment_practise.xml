@@ -5,20 +5,20 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.learn.LearnFragment">
+    tools:context=".ui.practise.PractiseFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/tb_learn"
+        android:id="@+id/tb_practise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:subtitle="Question 1 / 15"
         app:subtitleCentered="true"
-        app:title="Quiz"
+        app:title="@string/practise"
         app:titleCentered="true" />
 
 
     <TextView
-        android:id="@+id/tv_task_learn"
+        android:id="@+id/tv_task_practise"
         android:layout_marginTop="@dimen/dimen_32"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,6 +60,7 @@
     </RadioGroup>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_submit_practise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"

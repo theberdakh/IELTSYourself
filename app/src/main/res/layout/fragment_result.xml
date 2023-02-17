@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Result"
+        app:navigationIcon="@drawable/round_close_24"
+        app:menu="@menu/menu_top_result"
+        app:titleCentered="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?colorPrimary"
+                style="@style/SettingsTextView"
+                android:layout_margin="@dimen/dimen_2"
+                android:text="Correct: 16 words (80%)"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SettingsTextView"
+                android:textColor="?colorError"
+                android:textSize="@dimen/text_14"
+                android:layout_margin="@dimen/dimen_2"
+                android:text="Incorrect: 4 words (20%)"/>
+
+
+        </LinearLayout>
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/cpi_result"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:progress="50"
+            android:layout_weight="5"
+            app:trackThickness="@dimen/dimen_16"
+            app:indicatorSize="100dp"
+            app:trackColor="?colorError"
+            android:layout_gravity="center" />
+
+
+    </LinearLayout>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="100%"
+                android:textColor="?colorPrimary"
+                android:textSize="@dimen/text_34"
+                android:gravity="center" />
+
+
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        app:title="Answers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
