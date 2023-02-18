@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="@string/word"
+        app:menu="@menu/menu_top_word"
+        app:navigationIcon="@drawable/round_close_24"
         app:titleCentered="true" />
 
     <LinearLayout

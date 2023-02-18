@@ -32,10 +32,7 @@ class ChooseFragment: Fragment(R.layout.fragment_choose) {
             tbChoose.setNavigationOnClickListener {
                 navController.popBackStack()
             }
-
-            val contextMenu = ChooseContextMenu()
-
-            tbChoose.createContextMenu(contextMenu)
+            
 
         }
 

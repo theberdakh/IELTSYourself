@@ -11,14 +11,21 @@ interface TopicDao {
     @Query("SELECT * from topics")
     suspend fun getAllTopics(): List<Topic>
 
+    @Query("SELECT *  from topics WHERE status = 0 ORDER BY id DESC")
+    suspend fun getAllMyTopics(): List<Topic>
+
     @Query("SELECT * FROM topics WHERE status = 1")
     suspend fun getAllStartedTopics(): List<Topic>
 
     @Query("SELECT * FROM topics WHERE status = 2")
     suspend fun getAllLearnedTopics(): List<Topic>
 
+
     @Insert(Topic::class)
     suspend fun addNewTopic(topic: Topic)
+
+    @Query("SELECT * FROM topics WHERE name = :name and description = :description")
+    suspend fun getTopicByNameAndDesc(name: String, description: String): Topic
 
     @Delete(entity = Topic::class)
     suspend fun deleteTopic(topic: Topic)

@@ -36,16 +36,16 @@
             app:destination="@id/newTopicFragment"
             app:launchSingleTop="false"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_myTopicsFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
     </fragment>
     <fragment
         android:id="@+id/newTopicFragment"
         android:name="com.theberdakh.ieltsyourself.ui.new_topic.NewTopicFragment"
         android:label="New topic"
         tools:layout="@layout/fragment_new_topic" >
-        <action
-            android:id="@+id/action_newTopicFragment_to_topicFragment"
-            app:destination="@id/topicFragment"
-            app:popUpTo="@id/myTopicsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/topicFragment"
@@ -54,16 +54,33 @@
         tools:layout="@layout/fragment_topic" >
         <action
             android:id="@+id/action_topicFragment_to_newWordFragment"
-            app:destination="@id/newWordFragment" />
+            app:destination="@id/newWordFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="Topic"
             app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
+        <action
+            android:id="@+id/action_topicFragment_to_topicEditFragment"
+            app:destination="@id/topicEditFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_topicFragment_to_wordEditFragment"
+            app:destination="@id/wordEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/newWordFragment"
         android:name="com.theberdakh.ieltsyourself.ui.new_word.NewWordFragment"
         android:label="New word"
-        tools:layout="@layout/fragment_new_word" />
+        tools:layout="@layout/fragment_new_word" >
+        <argument
+            android:name="Topic"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
+        <action
+            android:id="@+id/action_newWordFragment_to_topicFragment"
+            app:destination="@id/topicFragment"
+            app:popUpTo="@id/topicFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/savedWordsFragment"
         android:name="com.theberdakh.ieltsyourself.ui.saved_words.SavedWordsFragment"
@@ -97,6 +114,29 @@
         android:name="com.theberdakh.ieltsyourself.ui.developer.DeveloperFragment"
         android:label="fragment_developer"
         tools:layout="@layout/fragment_developer" />
+    <fragment
+        android:id="@+id/topicEditFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.topic_edit.TopicEditFragment"
+        android:label="TopicEditFragment"
+        tools:layout="@layout/fragment_topic_edit">
+        <argument
+            android:name="Topic"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Topic" />
+        <action
+            android:id="@+id/action_topicEditFragment_to_topicFragment"
+            app:destination="@id/topicFragment"
+            app:popUpTo="@id/topicFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordEditFragment"
+        android:name="com.theberdakh.ieltsyourself.ui.word_edit.WordEditFragment"
+        android:label="WordEditFragment"
+        tools:layout="@layout/fragment_word_edit">
+        <argument
+            android:name="Word"
+            app:argType="com.theberdakh.ieltsyourself.core.domain.model.Word" />
+    </fragment>
 
 
 </navigation>

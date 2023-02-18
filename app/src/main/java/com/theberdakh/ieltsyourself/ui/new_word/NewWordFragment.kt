@@ -2,26 +2,43 @@ package com.theberdakh.ieltsyourself.ui.new_word
 
 import android.opengl.Visibility
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.common.io.Resources
 import com.theberdakh.ieltsyourself.R
+import com.theberdakh.ieltsyourself.core.domain.model.Topic
+import com.theberdakh.ieltsyourself.core.domain.model.Word
+import com.theberdakh.ieltsyourself.core.presentation.NewWordViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentNewWordBinding
 
 class NewWordFragment : Fragment(R.layout.fragment_new_word) {
     private lateinit var binding: FragmentNewWordBinding
     private lateinit var navController: NavController
+    private lateinit var viewModel: NewWordViewModel
+    private lateinit var word: Word
+    private lateinit var topic: Topic
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNewWordBinding.bind(view)
+        viewModel = ViewModelProvider(requireActivity())[NewWordViewModel::class.java]
         navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
-
+        val args: NewWordFragmentArgs by navArgs()
+        topic = args.topic
 
         setUpMoreFieldsToggle()
         setUpToolbar()
@@ -30,12 +47,13 @@ class NewWordFragment : Fragment(R.layout.fragment_new_word) {
 
     private fun setUpMoreFieldsToggle() {
         binding.apply {
-          tilNewWordTranslation.isVisible = false
-            tilNewWordExample.isVisible  = false
+            tilNewWordTranslation.isVisible = false
+            tilNewWordExample.isVisible = false
             var toggle = false
+
             tvNewWordMoreFields.apply {
                 setOnClickListener {
-                    if (!toggle){
+                    if (!toggle) {
                         setCompoundDrawablesWithIntrinsicBounds(
                             0,
                             0,
@@ -46,8 +64,7 @@ class NewWordFragment : Fragment(R.layout.fragment_new_word) {
                         tilNewWordTranslation.isVisible = true
                         tilNewWordExample.isVisible = true
 
-                    }
-                    else {
+                    } else {
                         setCompoundDrawablesWithIntrinsicBounds(
                             0,
                             0,
@@ -61,27 +78,65 @@ class NewWordFragment : Fragment(R.layout.fragment_new_word) {
                 }
             }
 
-        }}
+        }
+    }
 
 
-        private fun setUpToolbar() {
-            binding.tbNewWord.apply {
-                setNavigationOnClickListener {
-                    navController.popBackStack()
-                }
+    private fun setUpToolbar() {
+        binding.apply {
+            tbNewWord.setNavigationOnClickListener {
+                navController.popBackStack()
+            }
 
-                setOnMenuItemClickListener { menuItem ->
-                    when (menuItem.itemId) {
-                        R.id.action_add_new_word -> {
+            tbNewWord.setOnMenuItemClickListener { menuItem ->
+               addTextChangedListener(etNewWordName, tilNewWordName)
+                addTextChangedListener(etNewWordMeaning, tilNewWordMeaning)
 
-                            true
+
+                when (menuItem.itemId) {
+                    R.id.action_add_new_word -> {
+                        if (etNewWordName.text.toString().isNotEmpty()
+                            && etNewWordMeaning.text.toString().isNotEmpty()
+                        ) {
+                            word = Word(
+                                name = etNewWordName.text.toString(),
+                                meaning = etNewWordMeaning.text.toString(),
+                                translation = etNewWordTranslation.text.toString(),
+                                example = etNewWordExample.text.toString(),
+                                topic = topic.id,
+                            )
+                            lifecycleScope.launchWhenResumed {
+                                viewModel.addWord(word)
+                                viewModel.updateTopicSize(topic)
+                            }
+                            navController.navigate(NewWordFragmentDirections.actionNewWordFragmentToTopicFragment(topic))
+
+                        } else {
+                            if (etNewWordName.text.toString().isEmpty()) {
+                                tilNewWordName.error = getString(R.string.til_error_empty)
+                            }
+                            if (etNewWordMeaning.text.toString().isEmpty()) {
+                                tilNewWordMeaning.error = getString(R.string.til_error_empty)
+                            }
                         }
-                        else -> {
-                            false
-                        }
+                    true
+                    }
+                    else -> {
+                        false
                     }
                 }
             }
         }
+    }
+
+    private fun addTextChangedListener(
+        editText: TextInputEditText,
+        textInputLayout: TextInputLayout
+    ) {
+        editText.addTextChangedListener {
+            textInputLayout.error = null
+        }
 
     }
+
+}

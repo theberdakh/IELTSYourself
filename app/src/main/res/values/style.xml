@@ -6,7 +6,7 @@
         <item name="cornerSize">10%</item>
     </style>
     <style name="ShapeAppearanceOverlayProfile" parent="">
-        <item name="cornerSize">50%</item>
+        <item name="cornerSize">10%</item>
     </style>
 
     <style name="SettingsTextView" parent="Widget.AppCompat.TextView">

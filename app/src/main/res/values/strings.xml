@@ -61,14 +61,17 @@
     <string name="or_sign_in_with">Or sign in with</string>
     <string name="text_no_account">No account? Click to create a new account</string>
     <string name="simple_word_size">12 words</string>
-    <string name="til_error_empty">The topic name can not be empty!</string>
+    <string name="til_error_empty">This field can not be empty!</string>
     <string name="subtitle_topic">%d words</string>
     <string name="learn">Start learning</string>
     <string name="practise">Practise</string>
     <string name="all_topics">All topics</string>
-    <string name="choose_a_topic_to_practise">Choose a topic to practise</string>
+    <string name="choose_a_topic_to_practise">Choose a topic</string>
     <string name="replay">Replay</string>
     <string name="bio_developer">Hello, \n\n I am Berdakh, I build this app for people who are learning foreign languages around the world. \n\n Although default topics are mainly focused to learn English and prepare for IELTS exam, you can create your own topics to learn any other language(s) as well.\n\nBerdakh Tlepov\nAndroid Developer</string>
+    <string name="delete">Delete</string>
+    <string name="delete_dialog_topic">Do you want to delete <b>%s</b> topic with %d words inside it?</string>
+    <string name="edit">Edit</string>
 
 
 </resources>

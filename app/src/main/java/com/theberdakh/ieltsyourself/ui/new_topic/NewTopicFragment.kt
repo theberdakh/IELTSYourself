@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,8 @@ import com.theberdakh.ieltsyourself.core.presentation.NewTopicViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentNewTopicBinding
 import com.theberdakh.ieltsyourself.utils.makeToast
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class NewTopicFragment : Fragment(R.layout.fragment_new_topic) {
     private lateinit var binding: FragmentNewTopicBinding
@@ -29,7 +32,6 @@ class NewTopicFragment : Fragment(R.layout.fragment_new_topic) {
 
         setBackNavigation()
         navigateToTopicFragment()
-
 
 
     }
@@ -59,19 +61,30 @@ class NewTopicFragment : Fragment(R.layout.fragment_new_topic) {
         addTextChangedListener()
         binding.apply {
             tbNewTopic.setOnMenuItemClickListener { menuItem ->
-                when(menuItem.itemId){
+                when (menuItem.itemId) {
                     R.id.action_top_new_topic -> {
-                        if (etNewTopicName.text.toString().isNotEmpty()){
-                            navController.navigate(NewTopicFragmentDirections.actionNewTopicFragmentToTopicFragment(Topic(name = etNewTopicName.text.toString())))
+                        if (etNewTopicName.text.toString().isNotEmpty()) {
+
+                            val topic = Topic(
+                                name = etNewTopicName.text.toString(),
+                                description = etNewTopicDescription.text.toString()
+                            )
+
+                            lifecycleScope.launchWhenResumed {
+                                viewModel.addNewTopic(topic)
+                            }
+
+                            navController.popBackStack()
+
                             true
-                        }
-                        else {
+                        } else {
                             tilNewTopicName.error = getString(R.string.til_error_empty)
                             false
                         }
                     }
                     else -> {
-                        false}
+                        false
+                    }
                 }
             }
 

@@ -16,4 +16,10 @@
         app:title="@string/my_topics"
         app:menu="@menu/menu_top_my_topics"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_my_topics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
 </LinearLayout>

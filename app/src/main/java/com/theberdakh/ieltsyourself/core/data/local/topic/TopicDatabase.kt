@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 
-@Database(entities = [Topic::class], version = 1, exportSchema = false)
+@Database(entities = [Topic::class], version = 1, exportSchema = true)
 abstract class TopicDatabase : RoomDatabase() {
 
     abstract fun getTopicDao(): TopicDao

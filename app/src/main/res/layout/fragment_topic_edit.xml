@@ -7,21 +7,21 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/dimen_32"
-    tools:context=".ui.new_topic.NewTopicFragment">
+    tools:context=".ui.topic_edit.TopicEditFragment">
 
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/tb_new_topic"
+        android:id="@+id/tb_edit_topic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/title_new_topic"
+        app:title="@string/edit"
         app:titleCentered="true"
         app:navigationIcon="@drawable/round_close_24"
-        app:menu="@menu/menu_top_new_topic"/>
+        app:menu="@menu/menu_top_edit_topic"/>
 
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_new_topic"
+        android:id="@+id/iv_edit_topic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:padding="@dimen/dimen_14"
@@ -33,21 +33,21 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_new_topic_name"
+        android:id="@+id/til_edit_topic_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_16"
         android:hint="@string/hint_topic">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_new_topic_name"
+            android:id="@+id/et_edit_topic_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_new_topic_description"
+        android:id="@+id/til_edit_topic_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/dimen_8"
@@ -55,13 +55,25 @@
         android:hint="@string/hint_topic_description">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_new_topic_description"
+            android:id="@+id/et_edit_topic_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
+    <TextView
+        android:id="@+id/tv_topic_edit_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8"
+        android:padding="@dimen/dimen_8"
+        android:text="@string/delete"
+        android:textColor="?colorError"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/dimen_4"
+        app:drawableStartCompat="@drawable/round_delete_24"
+        app:drawableTint="?colorError" />
 
 
 </LinearLayout>

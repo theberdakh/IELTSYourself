@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:title="@string/choose_a_topic_to_practise"
         app:subtitleCentered="true"
-        app:navigationIcon="@drawable/round_arrow_back_24"
+        app:navigationIcon="@drawable/round_close_24"
         app:titleCentered="true"/>
 
     <androidx.recyclerview.widget.RecyclerView

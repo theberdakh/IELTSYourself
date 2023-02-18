@@ -3,11 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="@dimen/dimen_4"
+    android:layout_margin="@dimen/dimen_4"
     app:cardCornerRadius="@dimen/dimen_16">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:padding="@dimen/dimen_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -15,10 +14,9 @@
             android:id="@+id/iv_topic"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:padding="@dimen/dimen_4"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App"
-            android:src="@mipmap/ic_launcher"
+            android:padding="@dimen/dimen_14"
             android:scaleType="centerCrop"
+            android:src="@drawable/round_topic_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

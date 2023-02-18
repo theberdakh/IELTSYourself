@@ -16,7 +16,10 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE name LIKE :searchValue")
     suspend fun searchAllWords(searchValue: String): List<Word>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Query("SELECT * FROM words WHERE topic = :topicId")
+    suspend fun getWordsByTopicId(topicId: Int): List<Word>
+
+    @Insert
     suspend fun addWord(word: Word)
 
     @Delete

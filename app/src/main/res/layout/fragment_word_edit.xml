@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.new_word.NewWordFragment">
+    tools:context=".ui.word_edit.WordEditFragment">
 
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/tb_new_word"
+        android:id="@+id/tb_edit_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/title_new_word"
+        app:title="@string/edit"
         app:navigationIcon="@drawable/round_close_24"
         app:titleCentered="true"
         app:menu="@menu/menu_top_new_word"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_new_word_name"
+        android:id="@+id/til_edit_word_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_word"
@@ -28,14 +28,14 @@
         android:padding="@dimen/dimen_8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_new_word_name"
+            android:id="@+id/et_edit_word_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_new_word_meaning"
+        android:id="@+id/til_edit_word_meaning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_8"
@@ -43,31 +43,16 @@
         android:padding="@dimen/dimen_8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_new_word_meaning"
+            android:id="@+id/et_edit_word_meaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
-        android:id="@+id/tv_new_word_more_fields"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_8"
-        android:padding="@dimen/dimen_8"
-        android:text="@string/more_fields"
-        android:textColor="?colorPrimary"
-        android:textStyle="bold"
-        android:gravity="center_vertical"
-        android:drawablePadding="@dimen/dimen_4"
-        app:drawableEndCompat="@drawable/round_keyboard_arrow_right_24"
-        app:drawableTint="?colorPrimary" />
-
-
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_new_word_translation"
+        android:id="@+id/til_edit_word_translation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_word_translation"
@@ -75,14 +60,14 @@
         android:padding="@dimen/dimen_8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_new_word_translation"
+            android:id="@+id/et_edit_word_translation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_new_word_example"
+        android:id="@+id/til_edit_word_example"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_8"
@@ -90,13 +75,25 @@
         android:padding="@dimen/dimen_8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_new_word_example"
+            android:id="@+id/et_edit_word_example"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
+    <TextView
+        android:id="@+id/tv_edit_word_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8"
+        android:padding="@dimen/dimen_8"
+        android:text="@string/delete"
+        android:textColor="?colorError"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/dimen_4"
+        app:drawableStartCompat="@drawable/round_delete_24"
+        app:drawableTint="?colorError" />
 
 
 
