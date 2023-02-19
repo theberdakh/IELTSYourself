@@ -103,7 +103,7 @@
         android:label="fragment_choose"
         tools:layout="@layout/fragment_choose" >
         <action
-            android:id="@+id/action_chooseFragment_to_learnFragment"
+            android:id="@+id/action_chooseFragment_to_practiseFragment"
             app:destination="@id/practiseFragment" />
         <argument
             android:name="Game"

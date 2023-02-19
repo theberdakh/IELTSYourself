@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:checkedIcon="@drawable/round_done_24"
+    android:checkable="true"
     android:layout_margin="@dimen/dimen_4"
     app:cardCornerRadius="@dimen/dimen_16">
 

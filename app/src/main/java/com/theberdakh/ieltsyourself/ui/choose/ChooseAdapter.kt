@@ -2,12 +2,14 @@ package com.theberdakh.ieltsyourself.ui.choose
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.theberdakh.ieltsyourself.core.domain.model.Game
+import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.databinding.ItemRecyclerTopicBinding
+import com.theberdakh.ieltsyourself.utils.App
 
 class ChooseAdapter : ListAdapter<Topic, ChooseAdapter.ChooseViewHolder>(ChooseCallBack) {
 
@@ -16,8 +18,11 @@ class ChooseAdapter : ListAdapter<Topic, ChooseAdapter.ChooseViewHolder>(ChooseC
         fun bind() {
             val topic = getItem(adapterPosition)
             binding.apply {
+                root.setOnClickListener {
+                    onTopicClicked.invoke(topic)
+                }
                 tvTitleTopic.text = topic.name
-                tvDescriptionTopic.text = topic.size.toString()
+                tvDescriptionTopic.text = "${topic.size} words"
             }
         }
     }
@@ -51,4 +56,9 @@ class ChooseAdapter : ListAdapter<Topic, ChooseAdapter.ChooseViewHolder>(ChooseC
     }
 
     override fun onBindViewHolder(holder: ChooseViewHolder, position: Int) = holder.bind()
+
+    private lateinit var onTopicClicked: (Topic) -> Unit
+    fun onTopicClickedListener(onTopicClicked: (Topic) -> Unit){
+        this.onTopicClicked = onTopicClicked
+    }
 }
