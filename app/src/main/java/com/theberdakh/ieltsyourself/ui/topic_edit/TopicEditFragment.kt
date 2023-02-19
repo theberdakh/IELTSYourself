@@ -76,7 +76,7 @@ class TopicEditFragment: Fragment(R.layout.fragment_topic_edit) {
                                 status = topic.status
                             )
                             updateTopic(updatedTopic)
-                            navController.navigate(TopicEditFragmentDirections.actionTopicEditFragmentToTopicFragment(updatedTopic))
+                            navController.navigate(TopicEditFragmentDirections.actionTopicEditFragmentToTopicFragment(updatedTopic, true))
                         }
                         true
                     }

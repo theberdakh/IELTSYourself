@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_topicFragment_to_wordEditFragment"
             app:destination="@id/wordEditFragment" />
+        <argument
+            android:name="showEdit"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/newWordFragment"

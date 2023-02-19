@@ -58,16 +58,25 @@ class ChooseFragment: Fragment(R.layout.fragment_choose) {
     }
 
     private fun showDialog(topic: Topic) {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(getString(R.string.practise))
-            .setMessage(getString(R.string.start_game_dialog_choose, topic.name))
-            .setPositiveButton(getString(R.string.start)){dialog, position ->
-                dialog.dismiss()
-                navController.navigate(ChooseFragmentDirections.actionChooseFragmentToPractiseFragment(topic))
-            }
-            .setNegativeButton(R.string.cancel){dialog, position ->
-                dialog.dismiss()
-            }.show()
+        if (topic.size> 5) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(R.string.practise))
+                .setMessage(getString(R.string.start_game_dialog_choose, topic.name))
+                .setPositiveButton(getString(R.string.start)){dialog, position ->
+                    dialog.dismiss()
+                    navController.navigate(ChooseFragmentDirections.actionChooseFragmentToPractiseFragment(topic))
+                }
+                .setNegativeButton(R.string.cancel){dialog, position ->
+                    dialog.dismiss()
+                }.show()
+        } else {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(R.string.practise))
+                .setMessage(getString(R.string.start_game_dialog_error))
+                .setPositiveButton(getString(R.string.clear)){dialog, position ->
+                    dialog.dismiss()
+                }.show()
+        }
     }
 
     private fun initObservers() {

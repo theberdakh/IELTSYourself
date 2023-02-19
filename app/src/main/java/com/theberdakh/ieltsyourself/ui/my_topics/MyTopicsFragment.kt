@@ -76,7 +76,7 @@ class MyTopicsFragment : Fragment(R.layout.fragment_my_topics) {
     private fun navigateToTopicFragment(topic: Topic) {
         navController.navigate(
             MyTopicsFragmentDirections.actionMyTopicsFragmentToTopicFragment(
-                topic
+                topic, true
             )
         )
     }

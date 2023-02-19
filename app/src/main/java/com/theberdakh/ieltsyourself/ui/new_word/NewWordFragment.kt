@@ -115,7 +115,7 @@ class NewWordFragment : Fragment(R.layout.fragment_new_word) {
                             viewModel.wordFlow.onEach {
                                 size = it.size
                             }
-                            navController.navigate(NewWordFragmentDirections.actionNewWordFragmentToTopicFragment(topic.copy( size = size)))
+                            navController.navigate(NewWordFragmentDirections.actionNewWordFragmentToTopicFragment(topic.copy( size = size), true))
 
 
 

@@ -13,7 +13,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
+import androidx.navigation.Navigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayoutMediator
 import com.theberdakh.ieltsyourself.R
@@ -50,7 +53,7 @@ class TopicsFragment : Fragment(R.layout.fragment_topics) {
     }
 
     private fun navigateToTopicFragment(topic: Topic) {
-        navController.navigate(MainFragmentDirections.actionMainFragmentToTopicFragment(topic))
+        navController.navigate(MainFragmentDirections.actionMainFragmentToTopicFragment(topic, false))
     }
 
     private fun initObservers() {

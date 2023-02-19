@@ -24,6 +24,7 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
     private lateinit var viewModel: TopicViewModel
     private var _adapter: TopicRecyclerAdapter? = null
     private val adapter get() = _adapter!!
+    private var showEdit: Boolean = false
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +35,9 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
         viewModel = ViewModelProvider(requireActivity())[TopicViewModel::class.java]
         val args: TopicFragmentArgs by navArgs()
         topic = args.topic
+        showEdit = args.showEdit
+
+
         binding.fabTopic.setOnClickListener {
             navigateToNewWordFragment()
         }
@@ -89,6 +93,10 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
     }
 
     private fun setUpToolBar() {
+
+        if (!showEdit){
+            binding.tbTopic.menu.clear()
+        }
 
         viewModel.topicFlow.onEach { topic ->
             this.topic = topic
