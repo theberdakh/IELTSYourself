@@ -19,11 +19,15 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE topic = :topicId")
     suspend fun getWordsByTopicId(topicId: Int): List<Word>
 
+
     @Insert
     suspend fun addWord(word: Word)
 
     @Delete
     suspend fun deleteWord(word: Word)
+
+    @Query("DELETE FROM words WHERE topic = :topicId")
+    suspend fun deleteWordsByTopicId(topicId: Int)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateWord(word: Word)

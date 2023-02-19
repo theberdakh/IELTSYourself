@@ -14,6 +14,7 @@ class TopicViewModel(application: Application): AndroidViewModel(application) {
     private val dao: WordDao
     private val topicDao : TopicDao
     var wordFlow = MutableSharedFlow<List<Word>>()
+    var topicFlow = MutableSharedFlow<Topic>()
 
     init {
         dao = WordDatabase.getInstance(application).getWordDao()
@@ -27,6 +28,12 @@ class TopicViewModel(application: Application): AndroidViewModel(application) {
     suspend fun updateTopicSize(topic: Topic){
         topicDao.updateTopic(topic)
     }
+
+    suspend fun getUpdatedTopic(topic: Topic) {
+        topicFlow.emit(topicDao.getTopicById(topic.id))
+    }
+
+
 
 
 }

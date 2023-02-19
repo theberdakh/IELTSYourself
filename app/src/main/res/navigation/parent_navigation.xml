@@ -127,6 +127,11 @@
             app:destination="@id/topicFragment"
             app:popUpTo="@id/topicFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_topicEditFragment_to_myTopicsFragment"
+            app:destination="@id/myTopicsFragment"
+            app:popUpTo="@id/myTopicsFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/wordEditFragment"

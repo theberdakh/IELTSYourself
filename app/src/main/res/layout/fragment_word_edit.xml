@@ -16,7 +16,7 @@
         app:title="@string/edit"
         app:navigationIcon="@drawable/round_close_24"
         app:titleCentered="true"
-        app:menu="@menu/menu_top_new_word"/>
+        app:menu="@menu/menu_top_edit_word"/>
 
 
     <com.google.android.material.textfield.TextInputLayout

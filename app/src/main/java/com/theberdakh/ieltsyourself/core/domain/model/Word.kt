@@ -16,7 +16,7 @@ data class Word(
     @ColumnInfo("meaning")
     val meaning: String,
     @ColumnInfo("translation")
-    val translation: String? = null,
+    val translation: String? =null ,
     @ColumnInfo("example")
     val example: String? = null,
     @ColumnInfo("topic")

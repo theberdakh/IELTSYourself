@@ -49,6 +49,18 @@ class TopicEditFragment: Fragment(R.layout.fragment_topic_edit) {
                MaterialAlertDialogBuilder(requireContext())
                    .setTitle(getString(R.string.delete))
                    .setMessage(getString(R.string.delete_dialog_topic, topic.name, topic.size))
+                   .setPositiveButton(getString(R.string.delete)){dialog, position ->
+                       lifecycleScope.launchWhenResumed {
+                           viewModel.deleteTopic(topic)
+                           viewModel.deleteTopicWithWords(topic)
+                       }
+                       dialog.dismiss()
+                       navController.navigate(TopicEditFragmentDirections.actionTopicEditFragmentToMyTopicsFragment())
+                   }
+                   .setNegativeButton(R.string.cancel){dialog, position ->
+                       dialog.dismiss()
+                   }.show()
+
            }
 
 
@@ -75,10 +87,11 @@ class TopicEditFragment: Fragment(R.layout.fragment_topic_edit) {
     }
 
     private fun updateTopic(topic: Topic) {
+
         lifecycleScope.launchWhenResumed {
             viewModel.updateTopic(topic)
-        }
-    }
+
+    }}
 
     private fun setNameField(til: TextInputLayout, et: TextInputEditText, value: String, error: String? = null) {
         et.setText(value)
@@ -86,4 +99,6 @@ class TopicEditFragment: Fragment(R.layout.fragment_topic_edit) {
             til.error = if (et.text.toString().isEmpty()) error else null
         }
     }
+
+
 }

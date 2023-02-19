@@ -2,6 +2,7 @@ package com.theberdakh.ieltsyourself.ui.topic
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -10,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
+import com.theberdakh.ieltsyourself.core.domain.model.Word
 import com.theberdakh.ieltsyourself.core.presentation.TopicViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentTopicBinding
 import kotlinx.coroutines.flow.launchIn
@@ -22,7 +24,6 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
     private lateinit var viewModel: TopicViewModel
     private var _adapter: TopicRecyclerAdapter? = null
     private val adapter get() = _adapter!!
-    private var topicSize = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,73 +32,79 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
         navController = Navigation.findNavController(requireActivity(), R.id.parent_container)
         _adapter = TopicRecyclerAdapter()
         viewModel = ViewModelProvider(requireActivity())[TopicViewModel::class.java]
-
         val args: TopicFragmentArgs by navArgs()
         topic = args.topic
+        binding.fabTopic.setOnClickListener {
+            navigateToNewWordFragment()
+        }
 
         initObservers()
+        viewModel.topicFlow.onEach {
+            this.topic = it
+        }.launchIn(lifecycleScope)
 
-        adapter.setOnWordClickedListener { }
+
+        adapter.setOnWordClickedListener {
+            navigateToWordFragment(it)
+        }
+        setUpToolBar()
         setUpRecyclerView()
 
     }
 
-    private fun updateTopicSize() {
-        lifecycleScope.launchWhenResumed {
-            viewModel.updateTopicSize(topic.copy(size = topicSize))
-        }
+    private fun navigateToWordFragment(word: Word) {
+        navController.navigate(TopicFragmentDirections.actionTopicFragmentToWordEditFragment(word))
+    }
 
+    private fun navigateToNewWordFragment() {
+        navController.navigate(TopicFragmentDirections.actionTopicFragmentToNewWordFragment(topic))
     }
 
     private fun initObservers() {
-        viewModel.wordFlow.onEach {
-            adapter.submitList(it)
-            topicSize = it.size
 
-        }.launchIn(lifecycleScope)
+        lifecycleScope.launchWhenResumed {
+            viewModel.apply {
+                getWordsByTopic(topic)
+                getUpdatedTopic(topic)
+            }
+        }
 
-        updateTopicSize()
-        setUpToolBar(topic)
 
     }
 
     private fun setUpRecyclerView() {
         binding.apply {
             rvTopic.adapter = adapter
-
-
-            lifecycleScope.launchWhenResumed {
-                viewModel.getWordsByTopic(topic)
-                updateTopicSize()
-            }
-
-            fabTopic.setOnClickListener {
-                navController.navigate(
-                    TopicFragmentDirections.actionTopicFragmentToNewWordFragment(
-                        topic
-                    )
-                )
-            }
+            viewModel.wordFlow.onEach {
+                adapter.submitList(it)
+                viewModel.updateTopicSize(topic.copy(size = it.size))
+            }.launchIn(lifecycleScope)
         }
     }
 
-    private fun setUpToolBar(topic: Topic) {
+    private fun navigateToTopicEditFragment() {
+        navController.navigate(TopicFragmentDirections.actionTopicFragmentToTopicEditFragment(
+            topic
+        ))
+    }
 
-        binding.tbTopic.apply {
-            setNavigationOnClickListener { navController.popBackStack() }
-            title = topic.name
-            subtitle = topic.size.toString()
-        }
+    private fun setUpToolBar() {
 
+        viewModel.topicFlow.onEach { topic ->
+            this.topic = topic
+            binding.tbTopic.apply {
+                title = topic.name
+                subtitle = topic.size.toString()
+            }
+        }.launchIn(lifecycleScope)
+
+
+        binding.tbTopic.setNavigationOnClickListener { navController.popBackStack() }
 
         binding.tbTopic.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_topic_edit -> {
-                    navController.navigate(
-                        TopicFragmentDirections.actionTopicFragmentToTopicEditFragment(
-                            topic
-                        )
-                    )
+                        navigateToTopicEditFragment()
                     true
                 }
                 else -> {
@@ -109,10 +116,5 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        updateTopicSize()
-
-    }
 
 }

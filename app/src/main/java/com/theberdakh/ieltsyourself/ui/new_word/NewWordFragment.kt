@@ -1,13 +1,8 @@
 package com.theberdakh.ieltsyourself.ui.new_word
 
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -18,12 +13,12 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.google.common.io.Resources
 import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.core.domain.model.Word
 import com.theberdakh.ieltsyourself.core.presentation.NewWordViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentNewWordBinding
+import kotlinx.coroutines.flow.onEach
 
 class NewWordFragment : Fragment(R.layout.fragment_new_word) {
     private lateinit var binding: FragmentNewWordBinding
@@ -42,6 +37,11 @@ class NewWordFragment : Fragment(R.layout.fragment_new_word) {
 
         setUpMoreFieldsToggle()
         setUpToolbar()
+        initObservers()
+
+    }
+
+    private fun initObservers() {
 
     }
 
@@ -105,11 +105,19 @@ class NewWordFragment : Fragment(R.layout.fragment_new_word) {
                                 example = etNewWordExample.text.toString(),
                                 topic = topic.id,
                             )
+
                             lifecycleScope.launchWhenResumed {
                                 viewModel.addWord(word)
-                                viewModel.updateTopicSize(topic)
+                                viewModel.getWordsByTopicId(word)
                             }
-                            navController.navigate(NewWordFragmentDirections.actionNewWordFragmentToTopicFragment(topic))
+
+                            var size = 0
+                            viewModel.wordFlow.onEach {
+                                size = it.size
+                            }
+                            navController.navigate(NewWordFragmentDirections.actionNewWordFragmentToTopicFragment(topic.copy( size = size)))
+
+
 
                         } else {
                             if (etNewWordName.text.toString().isEmpty()) {

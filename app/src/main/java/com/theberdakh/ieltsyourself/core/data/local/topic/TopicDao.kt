@@ -24,8 +24,8 @@ interface TopicDao {
     @Insert(Topic::class)
     suspend fun addNewTopic(topic: Topic)
 
-    @Query("SELECT * FROM topics WHERE name = :name and description = :description")
-    suspend fun getTopicByNameAndDesc(name: String, description: String): Topic
+    @Query("SELECT * FROM topics WHERE id = :id")
+    suspend fun getTopicById(id: Int): Topic
 
     @Delete(entity = Topic::class)
     suspend fun deleteTopic(topic: Topic)

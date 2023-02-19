@@ -6,14 +6,15 @@ import com.theberdakh.ieltsyourself.core.data.local.topic.TopicDao
 import com.theberdakh.ieltsyourself.core.data.local.topic.TopicDatabase
 import com.theberdakh.ieltsyourself.core.data.local.word.WordDao
 import com.theberdakh.ieltsyourself.core.data.local.word.WordDatabase
-import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.core.domain.model.Word
+import kotlinx.coroutines.flow.MutableSharedFlow
 
 class NewWordViewModel(application: Application): AndroidViewModel(application) {
 
     private val dao: WordDao
     private val topicDao: TopicDao
 
+    var wordFlow = MutableSharedFlow<List<Word>>()
 
     init {
         dao = WordDatabase.getInstance(application).getWordDao()
@@ -24,8 +25,8 @@ class NewWordViewModel(application: Application): AndroidViewModel(application) 
         dao.addWord(word)
     }
 
-    suspend fun updateTopicSize(topic: Topic){
-        topicDao.updateTopic(topic.copy(size = topic.size+1))
+    suspend fun getWordsByTopicId(word: Word){
+        wordFlow.emit(dao.getWordsByTopicId(word.topic))
     }
 
 }
