@@ -24,9 +24,6 @@ class SearchAdapter: ListAdapter<Word,SearchAdapter.SearchViewHolder>(SearchCall
                 else {
                     tvTitle.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0)
                 }
-                root.setOnClickListener {
-                    onWordClicked.invoke(word)
-                }
             }
         }
     }

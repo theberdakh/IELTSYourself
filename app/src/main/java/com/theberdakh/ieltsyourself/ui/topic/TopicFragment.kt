@@ -102,7 +102,7 @@ class TopicFragment : Fragment(R.layout.fragment_topic) {
             this.topic = topic
             binding.tbTopic.apply {
                 title = topic.name
-                subtitle = topic.size.toString()
+                subtitle = getString(R.string.subtitle_topic, topic.size)
             }
         }.launchIn(lifecycleScope)
 

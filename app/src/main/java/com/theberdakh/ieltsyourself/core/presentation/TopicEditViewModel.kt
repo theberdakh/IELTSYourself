@@ -29,8 +29,8 @@ class TopicEditViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     suspend fun deleteTopicWithWords(topic: Topic){
-        topicDao.deleteTopic(topic)
         wordDao.deleteWordsByTopicId(topicId = topic.id)
+        topicDao.deleteTopic(topic)
     }
 
 

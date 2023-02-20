@@ -11,7 +11,7 @@
         android:id="@+id/tb_practise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:subtitle="Question 1 / 15"
+        app:subtitle="@string/subtitle_practise"
         app:subtitleCentered="true"
         app:title="@string/practise"
         app:titleCentered="true" />

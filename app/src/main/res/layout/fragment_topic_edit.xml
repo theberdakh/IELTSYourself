@@ -61,19 +61,22 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/tv_topic_edit_delete"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_8"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/text_14"
+        android:layout_marginTop="@dimen/dimen_32"
+        android:layout_marginHorizontal="@dimen/dimen_8"
         android:padding="@dimen/dimen_8"
         android:text="@string/delete"
         android:textColor="?colorError"
-        android:textStyle="bold"
-        android:gravity="center_vertical"
         android:drawablePadding="@dimen/dimen_4"
-        app:drawableStartCompat="@drawable/round_delete_24"
-        app:drawableTint="?colorError" />
+        app:iconGravity="textStart"
+        app:icon="@drawable/round_delete_24"
+        app:iconTint="?colorError" />
 
 
 </LinearLayout>

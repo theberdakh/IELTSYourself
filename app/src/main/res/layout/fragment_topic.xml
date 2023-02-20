@@ -11,11 +11,9 @@
         android:id="@+id/tb_topic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Name of the topic"
         app:navigationIcon="@drawable/round_arrow_back_24"
         app:titleCentered="true"
         app:subtitleCentered="true"
-        app:subtitle="@string/subtitle_topic"
         app:menu="@menu/menu_top_topic"/>
 
     <androidx.recyclerview.widget.RecyclerView

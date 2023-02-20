@@ -21,7 +21,8 @@
             app:destination="@id/topicFragment" />
         <action
             android:id="@+id/action_mainFragment_to_chooseFragment"
-            app:destination="@id/chooseFragment" />
+            app:destination="@id/chooseFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_mainFragment_to_developerFragment"
             app:destination="@id/developerFragment" />

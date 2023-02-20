@@ -76,7 +76,8 @@
     <string name="test">sole</string>
     <string name="start_game_dialog_choose">Are you ready to practise <b>%s</b> topic?</string>
     <string name="start_game_dialog_error">Topic has not enough words to practise. The minimum amount for each topic is 10 words.</string>
-    <string name="clear">Ok</string>
+    <string name="clear">OK</string>
+    <string name="subtitle_practise">Question %d / %d </string>
 
 
 </resources>
