@@ -7,6 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.topics.TopicsFragment">
 
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tb_topics"
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         app:title="@string/topics"
         app:subtitleCentered="true"
         app:titleCentered="true"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_topics"

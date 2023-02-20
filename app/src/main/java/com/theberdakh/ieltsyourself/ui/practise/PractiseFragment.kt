@@ -33,7 +33,6 @@ class PractiseFragment: Fragment(R.layout.fragment_practise) {
         setGame()
 
 
-
         binding.btnSubmitPractise.setOnClickListener {
             if (currentQuestion<words.size){
                 currentQuestion++
@@ -43,7 +42,6 @@ class PractiseFragment: Fragment(R.layout.fragment_practise) {
         }
 
     }
-
     private fun initObservers() {
 
 

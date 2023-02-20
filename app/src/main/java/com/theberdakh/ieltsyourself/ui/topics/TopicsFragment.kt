@@ -6,8 +6,10 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +20,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Game
@@ -25,6 +30,7 @@ import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.core.presentation.TopicsViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentTopicsBinding
 import com.theberdakh.ieltsyourself.ui.main.MainFragmentDirections
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -46,6 +52,12 @@ class TopicsFragment : Fragment(R.layout.fragment_topics) {
 
         binding.apply {
             rvTopics.adapter = adapter
+
+
+                viewModel.topicsFlow.onEach {
+                    adapter.submitList(it)
+                }.launchIn(lifecycleScope)
+
             adapter.onTopicClickedListener {
                 navigateToTopicFragment(it)
             }
@@ -60,8 +72,6 @@ class TopicsFragment : Fragment(R.layout.fragment_topics) {
         lifecycleScope.launchWhenResumed {
             viewModel.getAllMyTopics()
         }
-        viewModel.topicsFlow.onEach {
-            adapter.submitList(it)
-        }.launchIn(lifecycleScope)
+
     }
 }
