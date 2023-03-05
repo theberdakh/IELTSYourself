@@ -16,7 +16,8 @@
         app:title="@string/title_new_word"
         app:navigationIcon="@drawable/round_close_24"
         app:titleCentered="true"
-        app:menu="@menu/menu_top_new_word"/>
+        app:menu="@menu/menu_top_new_word"
+        />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -25,7 +26,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/hint_word"
         android:layout_margin="@dimen/dimen_8"
-        android:padding="@dimen/dimen_8">
+        android:padding="@dimen/dimen_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_word_name"
@@ -40,7 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_8"
         android:hint="@string/hint_word_meaning"
-        android:padding="@dimen/dimen_8">
+        android:padding="@dimen/dimen_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_word_meaning"
@@ -72,7 +75,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/hint_word_translation"
         android:layout_margin="@dimen/dimen_8"
-        android:padding="@dimen/dimen_8">
+        android:padding="@dimen/dimen_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_word_translation"
@@ -87,7 +91,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_8"
         android:hint="@string/hint_new_word_example"
-        android:padding="@dimen/dimen_8">
+        android:padding="@dimen/dimen_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_new_word_example"
