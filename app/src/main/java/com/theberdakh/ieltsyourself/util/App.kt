@@ -1,4 +1,4 @@
-package com.theberdakh.ieltsyourself.utils
+package com.theberdakh.ieltsyourself.util
 
 import android.app.Application
 

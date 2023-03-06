@@ -2,14 +2,11 @@ package com.theberdakh.ieltsyourself.ui.choose
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.databinding.ItemRecyclerTopicBinding
-import com.theberdakh.ieltsyourself.utils.App
 
 class ChooseAdapter : ListAdapter<Topic, ChooseAdapter.ChooseViewHolder>(ChooseCallBack) {
 

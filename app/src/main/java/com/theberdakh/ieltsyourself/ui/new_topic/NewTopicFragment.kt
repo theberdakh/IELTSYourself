@@ -1,10 +1,7 @@
 package com.theberdakh.ieltsyourself.ui.new_topic
 
 import android.os.Bundle
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,10 +12,6 @@ import com.theberdakh.ieltsyourself.R
 import com.theberdakh.ieltsyourself.core.domain.model.Topic
 import com.theberdakh.ieltsyourself.core.presentation.NewTopicViewModel
 import com.theberdakh.ieltsyourself.databinding.FragmentNewTopicBinding
-import com.theberdakh.ieltsyourself.utils.makeToast
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
 class NewTopicFragment : Fragment(R.layout.fragment_new_topic) {
     private lateinit var binding: FragmentNewTopicBinding

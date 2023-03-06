@@ -2,6 +2,7 @@ package com.theberdakh.ieltsyourself.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,7 @@ class HomeRecyclerAdapter() :
                 btnPractiseLearn.setOnClickListener {
                     practiseClicked.invoke(game)
                 }
+                ivLearn.setImageDrawable(ContextCompat.getDrawable(ivLearn.context, game.image))
             }
         }
     }

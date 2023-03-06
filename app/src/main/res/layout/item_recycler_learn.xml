@@ -6,7 +6,7 @@
     android:layout_margin="@dimen/dimen_8"
     app:cardCornerRadius="@dimen/dimen_16">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/dimen_4"
@@ -14,21 +14,29 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_learn"
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:src="@drawable/ic_launcher_background"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="@dimen/dimen_8"
+            android:src="@drawable/ic_practise_png"
             android:scaleType="centerCrop"
-            android:layout_margin="@dimen/dimen_4"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App"/>
+            android:layout_margin="@dimen/dimen_8"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/tv_title_learn"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/title_new_topic"
             android:textSize="@dimen/text_24"
             android:padding="@dimen/dimen_8"
-            android:textColor="?colorOnSurface" />
+            android:textColor="?colorOnSurface"
+
+            app:layout_constraintStart_toEndOf="@id/iv_learn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_practise_learn"
@@ -38,10 +46,15 @@
             app:strokeWidth="0dp"
             app:icon="@drawable/round_play_arrow_24"
             app:iconGravity="end"
+            android:layout_marginTop="@dimen/dimen_8"
             android:layout_gravity="end"
             android:text = "@string/practise"
-            android:textSize="@dimen/text_14"/>
+            android:textSize="@dimen/text_14"
 
-    </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/tv_title_learn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
